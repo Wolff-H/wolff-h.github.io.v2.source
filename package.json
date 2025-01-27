@@ -5,6 +5,7 @@
     "docs:preview": "vitepress preview"
   },
   "devDependencies": {
+    "stylus": "^0.64.0",
     "vitepress": "^1.6.3"
   }
 }

@@ -1,0 +1,10 @@
+// 在这里定义自己的色彩变量 //
+// 
+// 【待补：】
+// 
+@import "./common/var.scss";
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-plus/lib/theme-chalk/fonts';
+
+@import "~element-plus/packages/theme-chalk/src/index";
