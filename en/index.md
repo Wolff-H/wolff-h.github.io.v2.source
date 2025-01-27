@@ -5,8 +5,14 @@ layout: home
 hero:
   name: "wolff-h.github.io"
   text: "Wolff's playground."
-  tagline: 作品展放与文档，以及其他乱七八糟的。
+  tagline: Some exhibition and documentation of crafts, and other miscellaneous stuff.
   actions:
+    - theme: brand
+      text: Tools
+      link: /en/tools
+    - theme: brand
+      text: Components
+      link: /en/components
     - theme: brand
       text: Markdown Examples
       link: /markdown-examples
