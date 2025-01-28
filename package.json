@@ -4,8 +4,31 @@
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
   },
+  "dependencies": {
+    "clone": "^2.1.2",
+    "dayjs": "^1.11.13",
+    "element-plus": "^2.9.3",
+    "lodash-es": "^4.17.21",
+    "vue": "^3.5.13",
+    "vue-eslint-parser": "^9.4.3"
+  },
   "devDependencies": {
+    "vitepress": "^1.6.3",
+    "@types/clone": "^2.1.4",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^22.12.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/language-plugin-pug": "^2.2.0",
+    "eslint": "^9.19.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "pug": "^3.0.3",
+    "sass": "^1.83.4",
     "stylus": "^0.64.0",
-    "vitepress": "^1.6.3"
+    "typescript": "^5.7.3",
+    "unplugin-auto-import": "^19.0.0",
+    "unplugin-vue-components": "^28.0.0",
+    "vite": "^6.0.11",
+    "vite-plugin-style-import": "^2.0.0"
   }
 }
