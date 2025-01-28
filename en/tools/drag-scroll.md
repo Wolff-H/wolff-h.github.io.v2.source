@@ -1,3 +1,9 @@
+<script setup>
+    import ExampleBasicUsage from "../tools-examples/drag-scroll/basic-usage.vue"
+</script>
+
+
+
 # drag-scroll
 
 <a href="https://npmjs.com/package/@wolff-h/drag-scroll"><img style="" src="/npm.svg" alt="npm package"></a>
@@ -7,3 +13,5 @@
 
 The most common, basic usage of drag-scroll.  
 Drag the image below to scroll its parent container.
+
+<ExampleBasicUsage />

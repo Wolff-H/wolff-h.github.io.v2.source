@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+// import vue from '@vitejs/plugin-vue'
 import UnpluginAutoImport from 'unplugin-auto-import/vite'
 import UnpluginVueComponents from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
@@ -21,11 +21,11 @@ export default defineConfig(({ command, mode }) => {
         server:
         {
             host: '0.0.0.0',
-            port: 8080,
+            port: 5173,
         },
         plugins:
         [
-            vue(),
+            // vue(), // 与 vitepress 重复导入了。 https://github.com/vuejs/vitepress/issues/3986
             UnpluginAutoImport({
                 dts: true,
                 eslintrc: {
