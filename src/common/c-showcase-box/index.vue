@@ -52,6 +52,12 @@ const toggleDisplayCode = () => {
     border 1px solid $black15
     border-radius 4px
     transition box-shadow 0.33s
+
+    // 解除 vitepress 的设置 //
+    img
+        max-width initial
+        height initial
+
     &:hover
         box-shadow 0px 0px 8px $black15
     >.main
