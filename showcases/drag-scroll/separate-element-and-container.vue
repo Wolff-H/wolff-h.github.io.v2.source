@@ -1,5 +1,5 @@
 <template lang="pug">
-c-showcase-box(path="drag-scroll/basic-usage")
+c-showcase-box(path="drag-scroll/separate-element-and-container")
     .container(
         ref="ref_scrollable"
     )
@@ -7,8 +7,10 @@ c-showcase-box(path="drag-scroll/basic-usage")
             src="/landscape-coast.jpg"
             alt="landscape-coast"
             draggable="false"
-            ref="ref_draggable"
         )
+    .touchpad(
+        ref="ref_draggable"
+    )
 </template>
 
 
@@ -29,10 +31,16 @@ onMounted(() => {
 <style lang="stylus">
 @import _colorset
 
-.showcase-box[data-path="drag-scroll/basic-usage"]
+.showcase-box[data-path="drag-scroll/separate-element-and-container"]
     .container
         display inline-block
         width 640px
         height 480px
         overflow auto
+
+    .touchpad
+        margin-top 24px
+        width 256px
+        height 192px
+        background-color $black20
 </style>

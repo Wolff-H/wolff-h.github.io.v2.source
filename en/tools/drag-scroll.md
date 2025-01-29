@@ -1,5 +1,6 @@
 <script setup>
-    import ExampleBasicUsage from "/showcases/drag-scroll/basic-usage.vue"
+    import ShowcaseBasicUsage from "/showcases/drag-scroll/basic-usage.vue"
+    import ShowcaseSeparateElementAndContainer from "/showcases/drag-scroll/separate-element-and-container.vue"
 </script>
 
 
@@ -12,9 +13,16 @@
     npm="https://npmjs.com/package/@wolff-h/drag-scroll"
 />
 
-## Basic Usage
+## Basic usage
 
 The most common, basic usage of drag-scroll.  
 Drag the image below to scroll its parent container.
 
-<ExampleBasicUsage />
+<ShowcaseBasicUsage />
+
+## Separate element and container
+
+It's not necessary to make corresponding scrollable container exactly the draggable element's parent.  
+For the example below, use the grey "touchpad" to scroll the container.
+
+<ShowcaseSeparateElementAndContainer />
