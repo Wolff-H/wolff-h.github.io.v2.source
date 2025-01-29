@@ -13,7 +13,9 @@ import "highlight.js/styles/atom-one-light.css"
 import "@/assets/stylesheets/vitepress-default-theme-customized/index.styl"
 
 
-export default {
+
+export default
+{
     ...DefaultTheme,
     enhanceApp({ app })
     {
