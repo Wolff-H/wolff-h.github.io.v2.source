@@ -1,5 +1,5 @@
 <script setup>
-    import ExampleBasicUsage from "../tools-examples/drag-scroll/basic-usage.vue"
+    import ExampleBasicUsage from "/showcases/drag-scroll/basic-usage.vue"
 </script>
 
 

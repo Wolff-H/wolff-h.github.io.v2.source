@@ -1,8 +1,5 @@
 <template lang="pug">
-c-showcase-box(
-    data-demo="drag-scroll"
-    data-topic="basic-usage"
-)
+c-showcase-box(path="drag-scroll/basic-usage")
     .container(
         ref="ref_scrollable"
     )
@@ -31,13 +28,16 @@ onMounted(() => {
     nextTick(() => {
         dragScroll(ref_draggable.value!, ref_scrollable.value!)
     })
+
+    console.log(import.meta.url);
+    
 })
 </script>
 
 <style lang="stylus">
 @import _colorset
 
-.showcase-box[data-demo='drag-scroll'][data-topic='basic-usage']
+.showcase-box[data-path="drag-scroll/basic-usage"]
     .container
         display inline-block
         width 640px

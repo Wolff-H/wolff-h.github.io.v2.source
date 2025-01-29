@@ -44,14 +44,10 @@
     ".vitepress/**/*.tsx",
     ".vitepress/**/*.vue",
     ".vitepress/**/*.d.ts",
-    "en/**/*.ts",
-    "en/**/*.tsx",
-    "en/**/*.vue",
-    "en/**/*.d.ts",
-    "zh/**/*.ts",
-    "zh/**/*.tsx",
-    "zh/**/*.vue",
-    "zh/**/*.d.ts",
+    "showcases/**/*.ts",
+    "showcases/**/*.tsx",
+    "showcases/**/*.vue",
+    "showcases/**/*.d.ts",
     "auto-imports.d.ts",
     "src/index.d.ts"
   ]

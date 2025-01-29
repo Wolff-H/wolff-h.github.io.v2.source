@@ -1,17 +1,21 @@
 {
-  "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "type": "module",
+    "scripts": {
+    "docs:dev": "npm run prepare && vitepress dev",
+    "docs:build": "npm run prepare && vitepress build",
+    "docs:preview": "npm run prepare && vitepress preview",
+    "generate-showcases-code": "node run ./scripts/generate-showcases-code",
+    "prepare": "npm run generate-showcases-code"
   },
   "dependencies": {
+    "@icon-park/vue-next": "^1.4.2",
+    "axios": "^1.7.9",
     "clone": "^2.1.2",
     "dayjs": "^1.11.13",
     "dragroll": "^1.1.1",
     "element-plus": "^2.9.3",
     "highlight.js": "^11.11.1",
     "lodash-es": "^4.17.21",
-    "@icon-park/vue-next": "^1.4.2",
     "vue": "^3.5.13",
     "vue-eslint-parser": "^9.4.3"
   },
