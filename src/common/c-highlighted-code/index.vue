@@ -10,8 +10,7 @@ pre.highlighted-code
 
 
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue'
-import HighlightJS from 'highlight.js'
+import HighlightJS from "highlight.js"
 
 defineOptions({
     name: 'c-highlighted-code',
