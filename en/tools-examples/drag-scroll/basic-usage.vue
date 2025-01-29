@@ -21,10 +21,9 @@ c-showcase-box
 
 <script setup lang="ts">
 import { code_snippets } from './basic-usage'
-import dragScroll from 'dragroll'
 
-const ref_draggable = ref() as { value: HTMLElement }
-const ref_scrollable = ref() as { value: HTMLElement }
+const ref_draggable = ref<HTMLElement>()
+const ref_scrollable = ref<HTMLElement>()
 
 onMounted(() => {
     nextTick(() => {
