@@ -101,6 +101,7 @@ onMounted(async () => {
             border-top 1px solid $black15
             color $black40
             cursor pointer
+            user-select none
             &:hover
                 background-color $primary10
                 >.icon.copy

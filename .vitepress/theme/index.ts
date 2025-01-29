@@ -1,5 +1,4 @@
 import DefaultTheme from "vitepress/theme"
-import "highlight.js/styles/atom-one-light.css"
 import CShowcaseBox from "../../src/common/c-showcase-box/index.vue"
 import CHighlightedCode from "../../src/common/c-highlighted-code/index.vue"
 import type { Theme } from "vitepress"
@@ -10,6 +9,8 @@ import stickElement from "@/lib/stick-element"
 import InlineSVG from "vue-inline-svg"
 import CCraftBadgeGroup from "@/common/c-craft-badge-group/index.vue"
 
+import "highlight.js/styles/atom-one-light.css"
+import "@/assets/stylesheets/vitepress-default-theme-customized/index.styl"
 
 
 export default {
