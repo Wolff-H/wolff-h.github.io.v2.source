@@ -19,7 +19,9 @@ const ref_scrollable = ref<HTMLElement>()
 
 onMounted(() => {
     nextTick(() => {
-        dragScroll(ref_draggable.value!, ref_scrollable.value!, { movement: { y: [0, 0] } })
+        dragScroll(ref_draggable.value!, ref_scrollable.value!, {
+            movement: { y: [0, 0] },
+        })
     })
 })
 </script>
