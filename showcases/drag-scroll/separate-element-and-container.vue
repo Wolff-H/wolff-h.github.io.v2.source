@@ -34,8 +34,8 @@ onMounted(() => {
 .showcase-box[data-path="drag-scroll/separate-element-and-container"]
     .container
         display inline-block
-        width 640px
-        height 480px
+        width 600px
+        height 450px
         overflow auto
 
     .touchpad

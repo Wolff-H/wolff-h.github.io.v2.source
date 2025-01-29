@@ -32,7 +32,7 @@ onMounted(() => {
 .showcase-box[data-path="drag-scroll/lock-x-axis"]
     .container
         display inline-block
-        width 640px
-        height 480px
+        width 600px
+        height 450px
         overflow auto
 </style>
