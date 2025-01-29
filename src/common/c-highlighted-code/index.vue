@@ -29,7 +29,7 @@ const ref_code = ref<HTMLElement | null>(null)
 onMounted(() => {
     nextTick(() => {
         if (ref_code.value) {
-            HighlightJS.highlightBlock(ref_code.value)
+            HighlightJS.highlightElement(ref_code.value)
         }
     })
 })
