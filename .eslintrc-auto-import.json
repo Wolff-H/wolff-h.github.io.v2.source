@@ -76,6 +76,7 @@
     "dragScroll": true,
     "handledResizable": true,
     "simpleDraggable": true,
-    "stickElement": true
+    "stickElement": true,
+    "pureDraggable": true
   }
 }

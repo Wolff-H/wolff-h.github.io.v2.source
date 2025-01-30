@@ -44,6 +44,7 @@ declare global {
   const onUpdated: typeof import('vue')['onUpdated']
   const onWatcherCleanup: typeof import('vue')['onWatcherCleanup']
   const provide: typeof import('vue')['provide']
+  const pureDraggable: typeof import('@/global-imports')['pureDraggable']
   const reactive: typeof import('vue')['reactive']
   const readonly: typeof import('vue')['readonly']
   const ref: typeof import('vue')['ref']
