@@ -1,6 +1,3 @@
-
-/**********************************************************************************************************************/
-
 interface ResizerData
 {
     resizee: HTMLElement
@@ -21,7 +18,7 @@ interface ResizerData
     }
 }
 
-interface HandlelyResizableData
+interface HandledResizableData
 {
     tool_name: string
     description: string
@@ -34,43 +31,43 @@ type ResizerDataMap = WeakMap<HTMLElement, ResizerData>
 
 
 /**
- * This package is still under heavy development. For 2.0 version it's planned to support multiple resizees for one resizer (这需求每个resizee上可以记录其专门的resizee_data，而不是公用一个配置，那样没有意义).
- * @param resizer The resizer handle (provided by user)
- * @param resizee The resizable element that will response to the resizer
- * @param options Movevment along x and y axis. 1 for positive, -1 for negative, 0 for standstill. X and y are both set to 1 by default. Reuturn falsy in hooks to prevent default behaviour.
+ * Offers ability of resizing element by dragging a handle.
+ * @param resizer Resizer. The resizer handle.
+ * @param resizee Resizee. The resizable element that will response to the resizer.
+ * @param options Options.
  */
-function handlelyResizable(
+function handledResizable(
     resizer: HTMLElement,
     resizee: HTMLElement|null,
     options?:
     {
+        movement?:
+        {
+            x?: -1|0|1,
+            y?: -1|0|1,
+        },
         hooks?:
         {
             resizeStart?: (event: MouseEvent, resizer: HTMLElement, resizer_data: ResizerData) => void|false,
             resize?: (event: MouseEvent, resizer: HTMLElement, resizer_data: ResizerData) => void|false,
             resizeEnd?: (event: MouseEvent, resizer: HTMLElement, resizer_data: ResizerData) => void,
         },
-        movement?:
-        {
-            x?: -1|0|1,
-            y?: -1|0|1,
-        },
     },
 ){
-    if(!window.__HandlelyResizable)
+    if(!window.__HandledResizable)
     {
-        window.__HandlelyResizable =
+        window.__HandledResizable =
         {
-            tool_name: 'handlely-resizable',
-            description: 'Make an element resizable with a provided (by user) handle.',
+            tool_name: 'handled-resizable',
+            description: 'Make an element resizable with a handle provided (by user).',
             resizer_data_map: new WeakMap(),
             active_resizer: null,
-        } as HandlelyResizableData
+        } as HandledResizableData
     }
 
-    const map: ResizerDataMap = window.__HandlelyResizable.resizer_data_map
+    const map: ResizerDataMap = window.__HandledResizable.resizer_data_map
 
-    // 删除 //
+    // delete //
     if(resizee === null)
     {
         map.delete(resizer)
@@ -78,7 +75,7 @@ function handlelyResizable(
         return
     }
 
-    // 新建或更新 //
+    // create or update //
     map.set(
         resizer,
         {
@@ -98,13 +95,13 @@ function handlelyResizable(
 function _dragStart(event: MouseEvent)
 {
     const resizer = event.target as HTMLElement
-    const map:ResizerDataMap = window.__HandlelyResizable.resizer_data_map
+    const map:ResizerDataMap = window.__HandledResizable.resizer_data_map
     const resizer_data = map.get(resizer)!
 
-    // 调用自定义hook //
+    // custom hook //
     if(resizer_data.hooks?.resizeStart && resizer_data.hooks?.resizeStart(event, resizer, resizer_data) === false) return
 
-    // 初始化resizer_data //
+    // initialize resizer_data //
     map.set(
         resizer,
         Object.assign(
@@ -119,7 +116,7 @@ function _dragStart(event: MouseEvent)
         )
     )
 
-    window.__HandlelyResizable.active_resizer = resizer
+    window.__HandledResizable.active_resizer = resizer
 
     document.addEventListener('mousemove', _drag)
     document.addEventListener('mouseup', _dragEnd)
@@ -127,11 +124,11 @@ function _dragStart(event: MouseEvent)
 
 function _drag(event: MouseEvent)
 {
-    const resizer = window.__HandlelyResizable.active_resizer
-    const map:ResizerDataMap = window.__HandlelyResizable.resizer_data_map
+    const resizer = window.__HandledResizable.active_resizer
+    const map:ResizerDataMap = window.__HandledResizable.resizer_data_map
     const resizer_data = map.get(resizer)!
 
-    // 调用自定义hook //
+    // custom hook //
     if(resizer_data.hooks?.resize && resizer_data.hooks?.resize(event, resizer, resizer_data) === false) return
 
     if(resizer_data.movement.x !== 0)
@@ -146,25 +143,27 @@ function _drag(event: MouseEvent)
 
 function _dragEnd(event: MouseEvent)
 {
-    const resizer = window.__HandlelyResizable.active_resizer
-    const map:ResizerDataMap = window.__HandlelyResizable.resizer_data_map
+    const resizer = window.__HandledResizable.active_resizer
+    const map:ResizerDataMap = window.__HandledResizable.resizer_data_map
     const resizer_data = map.get(resizer)!
 
     document.removeEventListener('mousemove', _drag)
     document.removeEventListener('mouseup', _dragEnd)
 
-    // 调用自定义hook //
+    // custom hook //
     if(resizer_data.hooks?.resizeEnd)
     {
         resizer_data.hooks?.resizeEnd(event, resizer, resizer_data)
     }
 }
 
-/**********************************************************************************************************************/
+
 
 export
 {
-    HandlelyResizableData,
+    HandledResizableData,
+    ResizerData,
+    ResizerDataMap,
 }
 
-export default handlelyResizable
+export default handledResizable
