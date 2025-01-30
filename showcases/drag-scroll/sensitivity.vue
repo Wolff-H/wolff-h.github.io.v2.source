@@ -149,4 +149,31 @@ onMounted(() => {
         width 480px
         height 360px
         overflow auto
+    .ruler-container
+        width: (500 + 2)px
+        height: (50 + 2)px
+        margin-top 16px
+        overflow-x auto
+        border 1px solid $black60
+
+        &::-webkit-scrollbar
+            display none
+
+        .ruler-element
+            width 1000px
+            height 50px
+
+            *
+                cursor default
+                user-select none
+
+            >span
+                display inline-flex
+                width 50px
+                height 100%
+                align-items center
+                color $black60
+
+                &:nth-child(2n)
+                    background-color $black05
 </style>
