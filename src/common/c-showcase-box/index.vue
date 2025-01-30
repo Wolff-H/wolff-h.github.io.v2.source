@@ -76,7 +76,7 @@ onMounted(async () => {
 .showcase-box
     min-width 400px
     margin 16px 0px
-    border 1px solid $black10
+    border 1px solid $black15
     border-radius 4px
     transition box-shadow 0.33s
 
@@ -98,7 +98,7 @@ onMounted(async () => {
             height 32px
             justify-content center
             align-items center
-            border-top 1px solid $black10
+            border-top 1px solid $black15
             color $black40
             cursor pointer
             user-select none
