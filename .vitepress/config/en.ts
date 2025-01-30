@@ -24,6 +24,7 @@ export default defineConfig({
                     { text: 'drag-scroll', link: '/en/tools/drag-scroll' },
                     { text: 'handled-resizable', link: '/en/tools/handled-resizable' },
                     { text: 'stick-element', link: '/en/tools/stick-element' },
+                    { text: 'pure-draggable', link: '/en/tools/pure-draggable' },
                 ],
             },
         ],

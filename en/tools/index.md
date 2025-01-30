@@ -13,3 +13,7 @@ Several tools I made for web development. (#^.^#)
 - [stick-element](/en/tools/stick-element)
 
     An npm library that implements more extensive CSS sticky behavior.
+
+- [pure-draggable](/en/tools/pure-draggable)
+
+    An npm library that provides comprehensive drag capability on elements.
