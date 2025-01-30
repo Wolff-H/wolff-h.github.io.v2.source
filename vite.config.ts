@@ -46,7 +46,7 @@ export default defineConfig(({ command, mode }) => {
                             // 'route',
                             'dragScroll',
                             'handledResizable',
-                            'simpleDraggable',
+                            'pureDraggable',
                             'stickElement',
                         ],
                     },

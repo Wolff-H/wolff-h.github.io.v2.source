@@ -4,7 +4,7 @@ import CHighlightedCode from "../../src/common/c-highlighted-code/index.vue"
 import type { Theme } from "vitepress"
 import dragScroll from "@/lib/drag-scroll"
 import handledResizable from "@/lib/handled-resizable"
-import simpleDraggable from "@/lib/simple-draggable"
+import pureDraggable from "@/lib/pure-draggable"
 import stickElement from "@/lib/stick-element"
 import InlineSVG from "vue-inline-svg"
 import CCraftBadgeGroup from "@/common/c-craft-badge-group/index.vue"
@@ -27,7 +27,7 @@ export default
 
         app.config.globalProperties['dragScroll'] = dragScroll
         app.config.globalProperties['handledResizable'] = handledResizable
-        app.config.globalProperties['simpleDraggable'] = simpleDraggable
+        app.config.globalProperties['pureDraggable'] = pureDraggable
         app.config.globalProperties['stickElement'] = stickElement
     },
 } satisfies Theme
