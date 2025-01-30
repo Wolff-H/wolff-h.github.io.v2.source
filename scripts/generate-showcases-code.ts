@@ -11,6 +11,9 @@ function main()
     const showcases_dir = nodepath.join(nodepath.resolve(), 'showcases')
     const showcases_code_dir = nodepath.join(nodepath.resolve(), 'public/showcases-code')
 
+    // 先清空一下输出目录 //
+    emptyDirectory(showcases_code_dir)
+
     if (!nodefs.existsSync(showcases_code_dir)) nodefs.mkdirSync(showcases_code_dir, { recursive: true })
 
     const showcase_dirs = nodefs.readdirSync(showcases_dir, { withFileTypes: true })
@@ -30,7 +33,7 @@ function main()
             {
                 const file_path = nodepath.join(showcase_path, file)
                 const content = nodefs.readFileSync(file_path, 'utf-8')
-                const fragments = extract_vue_sfc_fragments(content)
+                const fragments = extractVueSFCFragments(content)
 
                 const output_file_name = `${file.replace('.vue', '.json')}`
                 const output_file_path = nodepath.join(output_dir, output_file_name)
@@ -43,9 +46,9 @@ function main()
     })
 }
 
-function extract_vue_sfc_fragments(content)
+function extractVueSFCFragments(content: string)
 {
-    function extract(regex)
+    function extract(regex: RegExp)
     {
         const match = content.match(regex)
         return match ? match[0].trim() : ''
@@ -55,5 +58,25 @@ function extract_vue_sfc_fragments(content)
         template: extract(/<template[^>]*>([\s\S]*?)<\/template>/),
         script: extract(/<script[^>]*>([\s\S]*?)<\/script>/),
         style: extract(/<style[^>]*>([\s\S]*?)<\/style>/),
+    }
+}
+
+function emptyDirectory(directory: string)
+{
+    if (nodefs.existsSync(directory))
+    {
+        nodefs.readdirSync(directory).forEach(file => {
+            const curr_path = nodepath.join(directory, file)
+
+            if (nodefs.lstatSync(curr_path).isDirectory())
+            {
+                emptyDirectory(curr_path)
+                nodefs.rmdirSync(curr_path)
+            }
+            else
+            {
+                nodefs.unlinkSync(curr_path)
+            }
+        })
     }
 }
