@@ -20,6 +20,7 @@ declare global {
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const h: typeof import('vue')['h']
+  const handledResizable: typeof import('@/global-imports')['handledResizable']
   const handlelyResizable: typeof import('@/global-imports')['handlelyResizable']
   const inject: typeof import('vue')['inject']
   const isProxy: typeof import('vue')['isProxy']

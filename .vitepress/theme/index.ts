@@ -3,7 +3,7 @@ import CShowcaseBox from "../../src/common/c-showcase-box/index.vue"
 import CHighlightedCode from "../../src/common/c-highlighted-code/index.vue"
 import type { Theme } from "vitepress"
 import dragScroll from "@/lib/drag-scroll"
-import handlelyResizable from "@/lib/handlely-resizable"
+import handledResizable from "@/lib/handled-resizable"
 import simpleDraggable from "@/lib/simple-draggable"
 import stickElement from "@/lib/stick-element"
 import InlineSVG from "vue-inline-svg"
@@ -26,7 +26,7 @@ export default
         app.component(CCraftBadgeGroup.name!, CCraftBadgeGroup)
 
         app.config.globalProperties['dragScroll'] = dragScroll
-        app.config.globalProperties['handlelyResizable'] = handlelyResizable
+        app.config.globalProperties['handledResizable'] = handledResizable
         app.config.globalProperties['simpleDraggable'] = simpleDraggable
         app.config.globalProperties['stickElement'] = stickElement
     },
