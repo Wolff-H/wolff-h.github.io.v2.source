@@ -37,12 +37,12 @@ interface DraggableData
 }
 
 /**
- * ！！！TODO：可以考虑让simpleDraggable返回刚刚创建的draggable的draggable_data的引用，这样用户可以在外层设置data_transfer
+ * ！！！TODO：可以考虑让pureDraggable返回刚刚创建的draggable的draggable_data的引用，这样用户可以在外层设置data_transfer
  * @param draggable 拖拽物。
  * @param hooks 拖拽行为的生命周期钩子。在钩子中返回false将会阻止该行为的默认动作。
  * @param options 其他配置。传destroy为true则删除元素上的拖拽监听。
  */
-function simpleDraggable(
+function pureDraggable(
     draggable: HTMLElement,
     options:
     {
@@ -74,7 +74,7 @@ function simpleDraggable(
     {
         window.__SimpleDraggable =
         {
-            tool_name: 'simple-draggable',
+            tool_name: 'pure-draggable',
             description: 'Simple draggable.',
             draggable_to_draggable_data_map: new WeakMap(),
             active_draggable: null,
@@ -216,4 +216,4 @@ export {
     DraggableData,
 }
 
-export default simpleDraggable
+export default pureDraggable
