@@ -48,8 +48,12 @@ const ref_scrollable_2 = ref<HTMLElement>()
 onMounted(() => {
     nextTick(() => {
         dragScroll(ref_draggable.value!, ref_scrollable.value!)
-        dragScroll(ref_draggable_1.value!, ref_scrollable_1.value!, { movement: { y: [1, -1] } })
-        dragScroll(ref_draggable_2.value!, ref_scrollable_2.value!, { movement: { x: [1, -1], y: [1, -1] } })
+        dragScroll(ref_draggable_1.value!, ref_scrollable_1.value!, {
+            movement: { y: [1, -1] },
+        })
+        dragScroll(ref_draggable_2.value!, ref_scrollable_2.value!, {
+            movement: { x: [1, -1], y: [1, -1] },
+        })
     })
 })
 </script>

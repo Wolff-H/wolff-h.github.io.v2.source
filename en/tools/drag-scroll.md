@@ -43,7 +43,9 @@ Reverse scroll direction along x-axis, y-axis, or both.
 <ShowcaseReverseScrollDirection />
 
 ### Swap controls
-hello
+
+Horizontal drag will effect vertical scroll, and vice versa.
+
 ### Constrained dragscroll
 hello
 ### Sensitivity
