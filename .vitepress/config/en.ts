@@ -33,7 +33,7 @@ export default defineConfig({
                 [
                     { text: 'Introduction', link: '/en/tools/index' },
                     { text: 'drag-scroll', link: '/en/tools/drag-scroll' },
-                    // { text: 'Runtime API Examples', link: '/api-examples' },
+                    { text: 'handled-resizable', link: '/en/tools/handled-resizable' },
                 ],
             },
         ],

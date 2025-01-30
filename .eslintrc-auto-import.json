@@ -74,8 +74,9 @@
     "watchPostEffect": true,
     "watchSyncEffect": true,
     "dragScroll": true,
-    "handlelyResizable": true,
+    "handledResizable": true,
     "simpleDraggable": true,
-    "stickElement": true
+    "stickElement": true,
+    "handlelyResizable": true
   }
 }
