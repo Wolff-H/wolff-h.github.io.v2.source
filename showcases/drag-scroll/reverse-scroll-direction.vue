@@ -62,7 +62,7 @@ onMounted(() => {
 .showcase-box[data-path="drag-scroll/reverse-scroll-direction"]
     .container
         display inline-block
-        width 600px
-        height 450px
+        width 480px
+        height 360px
         overflow auto
 </style>
