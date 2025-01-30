@@ -1,8 +1,8 @@
 <script setup>
     import ShowcaseBasicUsage from "/showcases/drag-scroll/basic-usage.vue"
     import ShowcaseSeparateElementAndContainer from "/showcases/drag-scroll/separate-element-and-container.vue"
-    import ShowcaseLockXAxis from "/showcases/drag-scroll/lock-x-axis.vue"
-    import ShowcaseLockYAxis from "/showcases/drag-scroll/lock-y-axis.vue"
+    import ShowcaseLockAxis from "/showcases/drag-scroll/lock-axis.vue"
+    import ShowcaseReverseScrollDirection from "/showcases/drag-scroll/reverse-scroll-direction.vue"
 </script>
 
 
@@ -32,22 +32,16 @@ For the example below, use the grey "touchpad" to scroll the container.
 ## Movement
 
 ### Lock axis
-Dragscroll behavior will only take place on x-axis, y-axis, or both.
+Dragscroll behavior will only take place on x-axis, y-axis, or both (will not scroll at all).
 
-**Lock x-axis**
-
-Dragscroll behavior will only take place on x-axis.
-
-<ShowcaseLockXAxis />
-
-**Lock y-axis**
-
-Dragscroll behavior will only take place on y-axis.
-
-<ShowcaseLockYAxis />
+<ShowcaseLockAxis />
 
 ### Reverse scroll direction
-hello
+
+Reverse scroll direction along x-axis, y-axis, or both.
+
+<ShowcaseReverseScrollDirection />
+
 ### Swap controls
 hello
 ### Constrained dragscroll
