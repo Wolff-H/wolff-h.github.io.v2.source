@@ -1,16 +1,6 @@
-/*
-    1.
-        “相对于 = 容器”的时候
+'use strict'
 
-        所有sticky行为仅以元素的容器《全新未滚动》状态为基准，否则（以一个已经滚动了的容器作初始化）情况会非常复杂
-        也不一定，可以减去初始化时的容器当前滚动量。
-    2.
-        如果要利用到所有top、bottom、left、right四个方向的限制值的话，情况会复杂很多，但是会额外实现一种“捕获”的行为特性。
-*/
-
-/**********************************************************************************************************************/
-
-interface Limits
+interface Movement
 {
     relative_to: 'self'|'container'
     top?: number
@@ -21,6 +11,7 @@ interface Limits
 
 interface Options
 {
+    movement: Movement
     destroy: boolean
     override: boolean
 }
@@ -43,42 +34,40 @@ interface StickerData
     sticker_original_left: number
     sticker_original_away_top: number
     sticker_original_away_left: number
-    limits: Limits
+    movement: Movement
 }
 
 
 
 /**
- * 如果要规定在一个方向上粘滞，则必须显式规定粘滞物在该方向上的宽/高，否则可能发生，在粘滞物运动出在正方向与容器的边距后，发生形变。
- * @param container 容器。
- * @param sticker 粘滞物。
- * @param limits 限制规格。
- * @param options 选项。
+ * Make a sticker (element) "sticky" to its container (element) or just to itself.
+ * @param container Container. For which container's scroll, the sticker will respond to.
+ * @param sticker Sticker. If sticker is passed as null, clear all sticky relations on passed container.
+ * @param movement Movement constraint.
+ * @param options Options.
  */
 function stickElement(
     container: HTMLElement,
     sticker: HTMLElement|null,
-    limits:
+    options?:
     {
-        relative_to?: 'self'|'container',
-        top?: number,
-        left?: number,
-    } = {},
-    options:
-    {
+        movement?:
+        {
+            relative_to?: 'self'|'container',
+            top?: number,
+            left?: number,
+        },
         destroy?: boolean,
         override?: boolean,
-    } = {},
-)
-{
+    },
+){
     // defaults --------------------------------------------------------------------------------------------------------
-    const default_limits: Limits =
-    {
-        relative_to: 'container',
-    }
-
     const default_options: Options =
     {
+        movement:
+        {
+            relative_to: 'container',
+        },
         destroy: false,
         override: false,
     }
@@ -96,10 +85,9 @@ function stickElement(
     const map: ContainerToContainerDataMap = window.__StickElement.container_to_container_data_map
 
     // composed params -------------------------------------------------------------------------------------------------
-    const _limits = Object.assign({}, default_limits, limits)
     const _options = Object.assign({}, default_options, options)
 
-    // take one desired action -----------------------------------------------------------------------------------------
+    // do action -------------------------------------------------------------------------------------------------------
     // #1. destroy - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // remove whole record //
     if(sticker === null)
@@ -107,7 +95,6 @@ function stickElement(
         if(map.has(container))
         {
             map.delete(container)
-
             container.removeEventListener('scroll', scroll)
         }
 
@@ -144,7 +131,7 @@ function stickElement(
                     sticker_original_left: parseInt(getComputedStyle(sticker).left, 10),
                     sticker_original_away_top: sticker.getBoundingClientRect().y - container.getBoundingClientRect().y,
                     sticker_original_away_left: sticker.getBoundingClientRect().x - container.getBoundingClientRect().x,
-                    limits: _limits,
+                    movement: _options.movement,
                 },
             ],
         )
@@ -166,7 +153,7 @@ function stickElement(
                         sticker_original_left: parseInt(getComputedStyle(sticker).left, 10),
                         sticker_original_away_top: sticker.getBoundingClientRect().y - container.getBoundingClientRect().y,
                         sticker_original_away_left: sticker.getBoundingClientRect().x - container.getBoundingClientRect().x,
-                        limits: _limits,
+                        movement: _options.movement,
                     },
                 ],
             )
@@ -186,7 +173,7 @@ function stickElement(
 
                 if(target_sticker_data)
                 {
-                    console.log('update: update existed one');
+                    // update: update existed one
                     container_data[target_sticker_data_index] =
                     {
                         sticker: sticker,
@@ -194,13 +181,13 @@ function stickElement(
                         sticker_original_left: parseInt(getComputedStyle(sticker).left, 10),
                         sticker_original_away_top: sticker.getBoundingClientRect().y - container.getBoundingClientRect().y,
                         sticker_original_away_left: sticker.getBoundingClientRect().x - container.getBoundingClientRect().x,
-                        limits: _limits,
+                        movement: _options.movement,
                     }
                 }
                 // add the passed sticker_data as a new one to container_data //
                 else
                 {
-                    console.log('update: add as new one');
+                    // update: add as new one
                     const container_data = map.get(container)
 
                     if(container_data)
@@ -212,7 +199,7 @@ function stickElement(
                                 sticker_original_left: parseInt(getComputedStyle(sticker).left, 10),
                                 sticker_original_away_top: sticker.getBoundingClientRect().y - container.getBoundingClientRect().y,
                                 sticker_original_away_left: sticker.getBoundingClientRect().x - container.getBoundingClientRect().x,
-                                limits: _limits,
+                                movement: _options.movement,
                             }
                         )
                     }
@@ -237,18 +224,18 @@ function scroll(event: Event)
 
         if(sticker)
         {
-            // 相对于 = 自己 //
-            if(sticker_data.limits.relative_to === 'self')
+            // relative = self //
+            if(sticker_data.movement.relative_to === 'self')
             {
-                // 当容器滚出指定量，对粘滞物施加同向的滚动量差 //
-                // y 方向 //
-                if(sticker_data.limits.top !== undefined)
+                // when container scrolled out of certain distance, scroll sticker with the same vector //
+                // y-axis //
+                if(sticker_data.movement.top !== undefined)
                 {
-                    if(container.scrollTop >= sticker_data.limits.top)
+                    if(container.scrollTop >= sticker_data.movement.top)
                     {
                         sticker.style.top =
                             sticker_data.sticker_original_top +
-                            (container.scrollTop - sticker_data.limits.top) +
+                            (container.scrollTop - sticker_data.movement.top) +
                             'px'
                     }
                     else
@@ -256,15 +243,14 @@ function scroll(event: Event)
                         sticker.style.top = sticker_data.sticker_original_top + 'px'
                     }
                 }
-    
-                // x方向 //
-                if(sticker_data.limits.left !== undefined)
+                // x-axis //
+                if(sticker_data.movement.left !== undefined)
                 {
-                    if(container.scrollLeft >= sticker_data.limits.left)
+                    if(container.scrollLeft >= sticker_data.movement.left)
                     {
                         sticker.style.left =
                             sticker_data.sticker_original_left +
-                            (container.scrollLeft - sticker_data.limits.left) +
+                            (container.scrollLeft - sticker_data.movement.left) +
                             'px'
                     }
                     else
@@ -273,18 +259,18 @@ function scroll(event: Event)
                     }
                 }
             }
-            // 相对于 = 容器 //
+            // relative = container //
             else
             {
-                // 当边距超出指定量，对粘滞物施加同向的滚动量差 //
-                // y方向 //
-                if(sticker_data.limits.top !== undefined)
+                // when margin grown over certain distance, scroll sticker with the same vector //
+                // y-axis //
+                if(sticker_data.movement.top !== undefined)
                 {
-                    if(container.scrollTop >= (sticker_data.sticker_original_away_top - sticker_data.limits.top))
+                    if(container.scrollTop >= (sticker_data.sticker_original_away_top - sticker_data.movement.top))
                     {
                         sticker.style.top =
                             sticker_data.sticker_original_top +
-                            (container.scrollTop - (sticker_data.sticker_original_away_top - sticker_data.limits.top)) +
+                            (container.scrollTop - (sticker_data.sticker_original_away_top - sticker_data.movement.top)) +
                             'px'
                     }
                     else
@@ -293,14 +279,14 @@ function scroll(event: Event)
                     }
                 }
     
-                // x方向 //
-                if(sticker_data.limits.left !== undefined)
+                // x-axis //
+                if(sticker_data.movement.left !== undefined)
                 {
-                    if(container.scrollLeft >= (sticker_data.sticker_original_away_left - sticker_data.limits.left))
+                    if(container.scrollLeft >= (sticker_data.sticker_original_away_left - sticker_data.movement.left))
                     {
                         sticker.style.left =
                             sticker_data.sticker_original_left +
-                            (container.scrollLeft - (sticker_data.sticker_original_away_left - sticker_data.limits.left)) +
+                            (container.scrollLeft - (sticker_data.sticker_original_away_left - sticker_data.movement.left)) +
                             'px'
                     }
                     else
@@ -312,12 +298,12 @@ function scroll(event: Event)
         }
         else
         {
-            // 在这里清理掉失效的scrollable_data（其dom元素被销毁了）
+            // clean obsolete scrollable_data (as its relevant dom has been destroyed) //
             container_data.splice(i, 1)
         }
     }
 }
 
-/**********************************************************************************************************************/
+
 
 export default stickElement
