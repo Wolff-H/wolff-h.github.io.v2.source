@@ -13,6 +13,7 @@ export default defineConfig({
         [
             { text: 'Tools', link: '/en/tools' },
             { text: 'Components', link: '/en/components' },
+            { text: 'Misc', link: '/en/misc' },
         ],
         sidebar:
         [
@@ -20,7 +21,7 @@ export default defineConfig({
                 text: 'Tools',
                 items:
                 [
-                    { text: 'introduction', link: '/en/tools/index' },
+                    { text: 'Introduction', link: '/en/tools/index' },
                     { text: 'drag-scroll', link: '/en/tools/drag-scroll' },
                     { text: 'handled-resizable', link: '/en/tools/handled-resizable' },
                     { text: 'stick-element', link: '/en/tools/stick-element' },
@@ -31,6 +32,7 @@ export default defineConfig({
                 text: 'Components',
                 items:
                 [
+                    { text: 'Introduction', link: '/en/components/index' },
                     { text: 'contenteditable', link: '/en/components/contenteditable' },
                     { text: 'css-box-editor', link: '/en/components/css-box-editor' },
                     { text: 'formatted-value', link: '/en/components/formatted-value' },
@@ -38,6 +40,14 @@ export default defineConfig({
                     { text: 'elx-multilevel-checkbox', link: '/en/components/elx-multilevel-checkbox' },
                     { text: 'mobile-calendar', link: '/en/components/mobile-calendar' },
                     { text: 'pullrefresh-loading', link: '/en/components/pullrefresh-loading' },
+                ],
+            },
+            {
+                text: 'Misc',
+                items:
+                [
+                    { text: 'Introduction', link: '/en/misc/index' },
+                    { text: 'tsp-experiment-gui', link: '/en/misc/tsp-experiment-gui' },
                 ],
             },
         ],

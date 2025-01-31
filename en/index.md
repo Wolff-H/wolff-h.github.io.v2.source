@@ -13,18 +13,15 @@ hero:
     - theme: brand
       text: Components
       link: /en/components
-    # - theme: brand
-    #   text: Markdown Examples
-    #   link: /markdown-examples
-    # - theme: alt
-    #   text: API Examples
-    #   link: /api-examples
+    - theme: brand
+      text: Misc
+      link: /en/misc
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Tools
+    details: Those tools I made for web development.
+  - title: Components
+    details: Those components I made for web development.
+  - title: Misc
+    details: Whatever may count for a demonstration.
 ---
