@@ -20,11 +20,24 @@ export default defineConfig({
                 text: 'Tools',
                 items:
                 [
-                    { text: 'Introduction', link: '/en/tools/index' },
+                    { text: 'introduction', link: '/en/tools/index' },
                     { text: 'drag-scroll', link: '/en/tools/drag-scroll' },
                     { text: 'handled-resizable', link: '/en/tools/handled-resizable' },
                     { text: 'stick-element', link: '/en/tools/stick-element' },
                     { text: 'pure-draggable', link: '/en/tools/pure-draggable' },
+                ],
+            },
+            {
+                text: 'Components',
+                items:
+                [
+                    { text: 'contenteditable', link: '/en/components/contenteditable' },
+                    { text: 'css-box-editor', link: '/en/components/css-box-editor' },
+                    { text: 'formatted-value', link: '/en/components/formatted-value' },
+                    { text: 'echartx', link: '/en/components/echartx' },
+                    { text: 'elx-multilevel-checkbox', link: '/en/components/elx-multilevel-checkbox' },
+                    { text: 'mobile-calendar', link: '/en/components/mobile-calendar' },
+                    { text: 'pullrefresh-loading', link: '/en/components/pullrefresh-loading' },
                 ],
             },
         ],
