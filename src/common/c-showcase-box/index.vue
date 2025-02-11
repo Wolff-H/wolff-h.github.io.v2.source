@@ -74,7 +74,7 @@ onMounted(async () => {
 @import _colorset
 
 .showcase-box
-    min-width 400px
+    min-width 280px
     margin 16px 0px
     border 1px solid $black15
     border-radius 4px

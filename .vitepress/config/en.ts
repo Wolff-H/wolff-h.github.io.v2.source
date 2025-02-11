@@ -38,7 +38,7 @@ export default defineConfig({
                     { text: 'formatted-value', link: '/en/components/formatted-value' },
                     { text: 'echartx', link: '/en/components/echartx' },
                     { text: 'elx-multilevel-checkbox', link: '/en/components/elx-multilevel-checkbox' },
-                    { text: 'mobile-calendar', link: '/en/components/mobile-calendar' },
+                    { text: 'vivid-calendar', link: '/en/components/vivid-calendar' },
                     { text: 'pullrefresh-loading', link: '/en/components/pullrefresh-loading' },
                 ],
             },
