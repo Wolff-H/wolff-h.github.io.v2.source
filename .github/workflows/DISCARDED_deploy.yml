@@ -1,3 +1,4 @@
+# 不用 actions 了，这个 repo 是公开的。
 name: Deploy VitePress to GitHub Pages
 
 on:
