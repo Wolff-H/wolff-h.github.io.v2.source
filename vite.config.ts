@@ -75,6 +75,10 @@ export default defineConfig(({ command, mode }) => {
         {
             // __APP_ENV__: 'dev',
         } as Record<string, string>,
+        ssr:
+        {
+            noExternal: ['element-plus'],
+        },
     }
 
     return base_config
