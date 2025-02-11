@@ -9,7 +9,7 @@
 
 A vivid mobile calendar.
 
-**It's a mobile component, so try it out on phone or in mobile mode!**
+**ATTENTION: It's a mobile component, so try it out on phone or in mobile mode!**
 
 <br />
 <c-craft-badge-group
