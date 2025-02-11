@@ -32,7 +32,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.personal_token_on_actions }}
+          github_token: ${{ secrets.PERSONAL_TOKEN_ON_ACTIONS }}
           publish_dir: /.vitepress/dist # Vitepress 构建输出的目录
           external_repository: wolff-h/wolff-h.github.io # 目标仓库
           keep_files: false
