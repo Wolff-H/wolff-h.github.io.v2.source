@@ -26,6 +26,7 @@ import handledResizable from "@/lib/handled-resizable"
 import pureDraggable from "@/lib/pure-draggable"
 import stickElement from "@/lib/stick-element"
 import VividCalendar from "@/lib/vivid-calendar/index.vue"
+import PullrefreshLoading from "@/lib/pullrefresh-loading/index.vue"
 
 // 样式 //
 import "highlight.js/styles/atom-one-light.css"
@@ -60,6 +61,7 @@ export default
         app.component(CHighlightedCode.name!, CHighlightedCode)
         app.component(CCraftBadgeGroup.name!, CCraftBadgeGroup)
         app.component(VividCalendar.name!, VividCalendar)
+        app.component(PullrefreshLoading.name!, PullrefreshLoading)
 
         app.config.globalProperties['dragScroll'] = dragScroll
         app.config.globalProperties['handledResizable'] = handledResizable
