@@ -7,16 +7,16 @@
 
 # vivid-calendar
 
-A vivid mobile calendar.
-
-**ATTENTION: It's a mobile component, so try it out on phone or in mobile mode!**
-
 <br />
 <c-craft-badge-group
     readme="https://github.com/Wolff-H/vivid-calendar/blob/master/README.md"
     github="https://github.com/Wolff-H/vivid-calendar"
     npm="https://npmjs.com/package/vivid-calendar"
 />
+
+A vivid mobile calendar.
+
+**ATTENTION: It's a mobile component, so try it out on phone or in mobile mode!**
 
 ## Basic usage
 
