@@ -26,6 +26,6 @@ Just the month view if you don't use the slot.
 
 ## With slot used
 
-With the slot used, calendar provides full gesture interactions and animations.
+With the slot used, calendar provides full gesture interactions and animations. (since you need to scroll the calendar view to change between month view and week view)
 
 <ShowcaseWithSlot />
