@@ -19,7 +19,7 @@ export default defineConfig({
         },
         zh:
         {
-            label: "简体中文",
+            label: "简体中文(in dev)",
             lang: "zh-CN",
             link: "/zh/",
             ...locale_config_zh,
