@@ -1,15 +1,32 @@
 .VPDoc.has-aside
     >.container
         >.content
-            padding-left 16px !important
             padding-right 16px !important
+            padding-left 16px !important
             >.content-container
                 max-width initial !important
 .VPDoc
     padding-right 0px !important
-
 .VPDocOutlineItem.nested
     padding-left 32px !important
-
 .vp-doc h2
     border-top none !important
+.vp-doc
+    .showcase-box
+        table
+            // display block
+            // width auto
+            margin-top 0px !important
+            margin-bottom 0px !important
+            // overflow-x auto
+            // border-collapse collapse
+        th, td
+            // padding 8px
+            // border 1px solid #ddd /* 恢复默认边框 */
+            // background-color transparent /* 恢复默认背景 */
+            // text-align left
+        tr:nth-child(even)
+            background-color transparent /* 去除斑马纹 */
+.vp-doc
+    tr:nth-child(even)
+        background-color transparent /* 去除斑马纹 */

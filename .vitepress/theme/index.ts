@@ -27,12 +27,16 @@ import pureDraggable from "@/lib/pure-draggable"
 import stickElement from "@/lib/stick-element"
 import VividCalendar from "@/lib/vivid-calendar/index.vue"
 import PullrefreshLoading from "@/lib/pullrefresh-loading/index.vue"
+import Echartx from "@wolff-h/echartx"
+import "@wolff-h/echartx/dist/echartx.css"
 
 // 样式 //
 import "highlight.js/styles/atom-one-light.css"
 import "@/assets/stylesheets/vitepress-default-theme-customized/index.styl"
 
-
+import * as echarts from "echarts"
+import { initialize as initializeEchartx } from "@wolff-h/echartx"
+import "element-plus/theme-chalk/index.css"
 
 // 设置 dayjs //
 dayjs.extend(dayjs_plugin_utc)
@@ -50,6 +54,9 @@ dayjs.locale('zh-cn', {
     weekStart: 1,
 })
 
+// 初始化 echartx //
+initializeEchartx({ echarts })
+
 export default
 {
     ...DefaultTheme,
@@ -62,6 +69,7 @@ export default
         app.component(CCraftBadgeGroup.name!, CCraftBadgeGroup)
         app.component(VividCalendar.name!, VividCalendar)
         app.component(PullrefreshLoading.name!, PullrefreshLoading)
+        app.component(Echartx.name!, Echartx)
 
         app.config.globalProperties['dragScroll'] = dragScroll
         app.config.globalProperties['handledResizable'] = handledResizable
