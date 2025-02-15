@@ -151,5 +151,5 @@ const optionStack = {
 <style lang="stylus">
 .showcase-box[data-path="echartx/echarts-use"]
     .demo-figure-medium-size
-        height 600px
+        height 480px
 </style>
