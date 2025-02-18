@@ -36,7 +36,9 @@ import "highlight.js/styles/atom-one-light.css"
 import "@/assets/stylesheets/vitepress-default-theme-customized/index.styl"
 import "formatted-value/dist/formatted-value.css"
 
-
+import * as echarts from "echarts"
+import { initialize as initializeEchartx } from "@wolff-h/echartx"
+import "element-plus/theme-chalk/index.css"
 
 // 设置 dayjs //
 dayjs.extend(dayjs_plugin_utc)
@@ -53,6 +55,9 @@ dayjs.extend(dayjs_plugin_isoWeek)
 dayjs.locale('zh-cn', {
     weekStart: 1,
 })
+
+// 初始化 echartx //
+initializeEchartx({ echarts })
 
 export default
 {
