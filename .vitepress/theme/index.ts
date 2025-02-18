@@ -27,10 +27,14 @@ import pureDraggable from "@/lib/pure-draggable"
 import stickElement from "@/lib/stick-element"
 import VividCalendar from "@/lib/vivid-calendar/index.vue"
 import PullrefreshLoading from "@/lib/pullrefresh-loading/index.vue"
+import Echartx from "@wolff-h/echartx"
+import "@wolff-h/echartx/dist/echartx.css"
+import FormattedValue from "formatted-value"
 
 // 样式 //
 import "highlight.js/styles/atom-one-light.css"
 import "@/assets/stylesheets/vitepress-default-theme-customized/index.styl"
+import "formatted-value/dist/formatted-value.css"
 
 
 
@@ -62,6 +66,8 @@ export default
         app.component(CCraftBadgeGroup.name!, CCraftBadgeGroup)
         app.component(VividCalendar.name!, VividCalendar)
         app.component(PullrefreshLoading.name!, PullrefreshLoading)
+        app.component(Echartx.name!, Echartx)
+        app.component(FormattedValue.name!, FormattedValue)
 
         app.config.globalProperties['dragScroll'] = dragScroll
         app.config.globalProperties['handledResizable'] = handledResizable

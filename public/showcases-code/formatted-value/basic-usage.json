@@ -1,0 +1,1 @@
+{"template":"<template lang=\"pug\">\r\nc-showcase-box(path=\"formatted-value/basic-usage\")\r\n    formatted-value(:number=\"3.1415926\")\r\n</template>","script":"<script setup lang=\"ts\">\r\n// \r\n</script>","style":"<style lang=\"stylus\">\r\n// \r\n</style>"}

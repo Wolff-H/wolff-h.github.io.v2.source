@@ -1,0 +1,1 @@
+{"template":"<template>\n<c-showcase-box path=\"formatted-value/percent-sign\">\n  <formatted-value :number=\"3.1415926\" percent-sign />\n  <br />\n  <formatted-value :number=\"67\" percent-sign />\n</c-showcase-box>\n</template>","script":"","style":"<style></style>"}
