@@ -47,10 +47,10 @@ Echartx 图表集成了 echarts-use 能力，你可以控制其在单独图表�
 - <a href="en/tools/scrollable-tooltip.html">scrollableTooltip</a> 可滚浮窗
 - <a href="en/tools/auto-resize.html">autoResize</a> 自适应空间
 - <a href="en/tools/resizable.html">resizable</a> 可调整大小 -->
-- globallyReverse 全局反选
-- scrollableTooltip 可滚浮窗
-- autoResize 自适应空间
-- resizable 可调整大小
+- 全局反选（globallyReverse）：在任意图例上双击，反选当前作图序列。
+- 可滚浮窗（scrollableTooltip）：在浮窗内容过长时，可浮窗内容可滚动查看。
+- 自适应空间（autoResize）：当作图容器大小变化，自动调整作图大小。
+- 可调整大小（resizable）：支持手动调整作图元素大小。
 
 <ShowcaseEchartsUse />
 
@@ -58,7 +58,7 @@ Echartx 图表集成了 echarts-use 能力，你可以控制其在单独图表�
 
 特别地，当 echartx 元素切换显隐状态时（通常是由于被渲染在了模态框或标签页中），元素由隐藏时到显示时的计算尺寸变化会有缩放防抖延迟的闪烁跳跃。
 
-启用`anti-flicker`来解决。echartx 将监听元素显隐切换，在合适的时机立即缩放重绘画布，避免画布闪烁。
+启用`anti-flicker`解决此问题。echartx 将监听元素显隐切换，在合适的时机立即缩放重绘画布，避免画布闪烁。
 
 仅在你确定 echartx 元素可能会发生显隐切换时启用此功能，避免无意义的性能开销。
 
@@ -70,18 +70,18 @@ Echartx 图表集成了 echarts-use 能力，你可以控制其在单独图表�
 
 | 属性                         | 说明                                                                                 | 类型                                             | 可选值 | 默认值 |
 | ---------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------ | ------ | ------ |
-| id                           | 在全局作用域下唯一标记此图表的标识符（当你配置一些实例专用的设置时需要）             | string                                           | —      | —      |
+| id                           | 全局唯一标记此图表的标识符（当你配置一些实例专用的设置时需要）                          | string                                           | —      | —      |
 | echart-option                | 传给 echarts 实例的 option                                                           | `echarts.EChartsOption`                          | —      | —      |
-| init-params                  | 初始化 echarts 实例使用的参数                                                        | `Parameters<typeof echarts.init>[2]`             | —      | {}     |
-| watch-option                 | 自动监听 echartOption 更新。默认启用。关闭此项，则你需要手动控制图表实例来执行更新。 | boolean                                          | —      | true   |
+| init-params                  | echarts 实例的初始化参数                                                            | `Parameters<typeof echarts.init>[2]`             | —      | {}     |
 | override-option              | 是否覆写式更新实例的 Option。默认启用。                                              | boolean                                          | —      | true   |
+| watch-option                 | 自动监听 echartOption 更新。默认启用。关闭此项，则你需要手动控制图表实例来执行更新。 | boolean                                          | —      | true   |
 | actions                      | 操作的自定义方法（放大展示、切换视图、下载数据）。详见 Actions 属性说明。            | `Actions`                                        | —      | —      |
 | actions-enabled              | 启用的操作项。不设置则启用全部。                                                     | `('expand' \| 'toggleViewMode' \| 'download')[]` | —      | —      |
+| echarts-use                  | 集成的 echarts-use 功能。详见 EchartsUse 属性说明。                                  | `EchartsUseConfig`                               | —      | —      |
 | download-file-name           | （内置下载）下载文件的输出名称                                                       | `() => string`                                   | —      | —      |
 | download-file-name-timestamp | （内置下载）下载文件的输出名称是否附加后缀时间戳                                     | boolean                                          | —      | true   |
-| echarts-use                  | 集成的 echarts-use 功能。详见 EchartsUse 属性说明。                                  | `EchartsUseConfig`                               | —      | —      |
-| table-resolving              | 将作图数据转换为表格的一些设置。详见 TableResolving 属性说明。                       | `TableResolvingConfig`                           | —      | —      |
 | anti-flicker                 | 画布缩放重绘的防闪烁。请仅在确定 echartx 元素可能会发生显隐切换时启用。              | boolean                                          | —      | —      |
+| table-resolving              | 将作图数据转换为表格的设置。详见 TableResolving 属性说明。                          | `TableResolvingConfig`                           | —      | —      |
 
 ## Actions 属性
 
@@ -101,17 +101,17 @@ Echartx 图表集成了 echarts-use 能力，你可以控制其在单独图表�
 
 | 属性              | 说明                                                  | 类型                                                 | 可选值 | 默认值 |
 | ----------------- | ----------------------------------------------------- | ---------------------------------------------------- | ------ | ------ |
-| autoResize        | 接收一个 [enable, props] 元组，分别设置是否启用与参数 | `[enable?: boolean, props?: AutoResizeProps]`        | —      | —      |
-| resizable         | 接收一个 [enable, props] 元组，分别设置是否启用与参数 | `[enable?: boolean, props?: ResizableProps]`         | —      | —      |
-| globallyReverse   | 接收一个 [enable, props] 元组，分别设置是否启用与参数 | `[enable?: boolean, props?: GloballyReverseProps]`   | —      | —      |
-| scrollableTooltip | 接收一个 [enable, props] 元组，分别设置是否启用与参数 | `[enable?: boolean, props?: ScrollableTooltipProps]` | —      | —      |
+| autoResize        | 接收一个 [enable, props] 元组，分别设置启用与否和参数    | `[enable?: boolean, props?: AutoResizeProps]`        | —      | —      |
+| resizable         | 接收一个 [enable, props] 元组，分别设置启用与否和参数    | `[enable?: boolean, props?: ResizableProps]`         | —      | —      |
+| globallyReverse   | 接收一个 [enable, props] 元组，分别设置启用与否和参数    | `[enable?: boolean, props?: GloballyReverseProps]`   | —      | —      |
+| scrollableTooltip | 接收一个 [enable, props] 元组，分别设置启用与否和参数    | `[enable?: boolean, props?: ScrollableTooltipProps]` | —      | —      |
 
 ## TableResolving 属性
 
 | 属性               | 说明                                                           | 类型                                                         | 可选值 | 默认值 |
 | ------------------ | -------------------------------------------------------------- | ------------------------------------------------------------ | ------ | ------ |
-| smartPercentSuffix | 使用内置解析器转换表格数据时，是否自动识别添加列名的百分率后缀 | boolean                                                      | —      | false  |
-| parser             | 自定义的 table 构造解析器                                      | `(option: EChartsOption) => { columns: any[]; data: any[] }` | —      | —      |
+| smartPercentSuffix | 使用内置解析器转换表格数据时，是否智能识别和添加列名的百分率后缀 | boolean                                                      | —      | false  |
+| parser             | 传入的自定义的 table 构造解析器                                  | `(option: EChartsOption) => { columns: any[]; data: any[] }` | —      | —      |
 
 ## Echartx 对外暴露的属性/方法
 

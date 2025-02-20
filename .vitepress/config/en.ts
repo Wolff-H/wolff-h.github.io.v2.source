@@ -33,11 +33,11 @@ export default defineConfig({
                 items:
                 [
                     { text: 'Introduction', link: '/en/components/index' },
-                    { text: 'contenteditable', link: '/en/components/contenteditable' },
-                    { text: 'css-box-editor', link: '/en/components/css-box-editor' },
+                    // { text: 'contenteditable', link: '/en/components/contenteditable' },
+                    // { text: 'css-box-editor', link: '/en/components/css-box-editor' },
                     { text: 'formatted-value', link: '/en/components/formatted-value' },
                     { text: 'echartx', link: '/en/components/echartx' },
-                    { text: 'elx-multilevel-checkbox', link: '/en/components/elx-multilevel-checkbox' },
+                    // { text: 'elx-multilevel-checkbox', link: '/en/components/elx-multilevel-checkbox' },
                     { text: 'vivid-calendar', link: '/en/components/vivid-calendar' },
                     { text: 'pullrefresh-loading', link: '/en/components/pullrefresh-loading' },
                 ],
