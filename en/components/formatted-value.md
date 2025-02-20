@@ -15,7 +15,7 @@
     import ShowcaseFallbackBy from "/showcases/formatted-value/fallback-by.vue"
 </script>
 
-# FormattedValue 格式化数值
+# formatted-value
 
 <br />
 <c-craft-badge-group
