@@ -27,9 +27,9 @@ import pureDraggable from "@/lib/pure-draggable"
 import stickElement from "@/lib/stick-element"
 import VividCalendar from "@/lib/vivid-calendar/index.vue"
 import PullrefreshLoading from "@/lib/pullrefresh-loading/index.vue"
-import Echartx from "@wolff-h/echartx"
+import Echartx from "@wolff-h/echartx/dist/echartx.es"
 import "@wolff-h/echartx/dist/echartx.css"
-import FormattedValue from "formatted-value"
+import FormattedValue from "formatted-value/dist/formatted-value.es"
 
 // 样式 //
 import "highlight.js/styles/atom-one-light.css"
@@ -37,7 +37,7 @@ import "@/assets/stylesheets/vitepress-default-theme-customized/index.styl"
 import "formatted-value/dist/formatted-value.css"
 
 import * as echarts from "echarts"
-import { initialize as initializeEchartx } from "@wolff-h/echartx"
+import { initialize as initializeEchartx } from "@wolff-h/echartx/dist/echartx.es"
 import "element-plus/theme-chalk/index.css"
 
 // 设置 dayjs //
